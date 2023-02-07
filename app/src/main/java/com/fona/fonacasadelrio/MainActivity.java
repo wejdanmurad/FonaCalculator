@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_main);
+        setContentView(binding.getRoot());
         initViews();
     }
 
@@ -38,17 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == binding.calculate.getId()) {
             newActivity(CalculateActivity.class);
-            Log.d("TAG", "onClick: calculate");
         } else if (view.getId() == binding.settings.getId()) {
             newActivity(SettingsActivity.class);
-            Log.d("TAG", "onClick: calculate");
         } else if (view.getId() == binding.history.getId()) {
             newActivity(HistoryActivity.class);
-            Log.d("TAG", "onClick: calculate");
         }
     }
 
     private void newActivity(Class<?> clas) {
         startActivity(new Intent(this, clas));
+        finish();
     }
 }

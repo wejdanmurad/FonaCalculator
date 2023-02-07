@@ -6,4 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".ui.HistoryActivity">
 
+
+    <ImageView
+        android:id="@+id/iv_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_c"
+        app:layout_constraintEnd_toStartOf="@id/iv_mul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_mul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_x"
+        app:layout_constraintEnd_toStartOf="@id/iv_dev"
+        app:layout_constraintStart_toEndOf="@id/iv_c"
+        app:layout_constraintTop_toTopOf="@id/iv_c" />
+
+    <ImageView
+        android:id="@+id/iv_dev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_dev"
+        app:layout_constraintEnd_toStartOf="@id/iv_delet"
+        app:layout_constraintStart_toEndOf="@id/iv_mul"
+        app:layout_constraintTop_toTopOf="@id/iv_mul" />
+
+    <ImageView
+        android:id="@+id/iv_delet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/ic_delet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_dev"
+        app:layout_constraintTop_toTopOf="@id/iv_dev" />
+
+
+
+    <ImageView
+        android:id="@+id/iv_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_7"
+        app:layout_constraintEnd_toStartOf="@id/iv_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_c" />
+
+    <ImageView
+        android:id="@+id/iv_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_8"
+        app:layout_constraintEnd_toStartOf="@id/iv_9"
+        app:layout_constraintStart_toEndOf="@id/iv_c"
+        app:layout_constraintTop_toBottomOf="@id/iv_c" />
+
+    <ImageView
+        android:id="@+id/iv_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_9"
+        app:layout_constraintEnd_toStartOf="@id/iv_mun"
+        app:layout_constraintStart_toEndOf="@id/iv_8"
+        app:layout_constraintTop_toBottomOf="@id/iv_c" />
+
+    <ImageView
+        android:id="@+id/iv_mun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/ic_mun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_9"
+        app:layout_constraintTop_toBottomOf="@id/iv_c" />
+
+
+    <ImageView
+        android:id="@+id/iv_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:src="@drawable/ic_4"
+        app:layout_constraintEnd_toStartOf="@id/iv_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_7" />
+
+    <ImageView
+        android:id="@+id/iv_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_5"
+        app:layout_constraintEnd_toStartOf="@id/iv_6"
+        app:layout_constraintStart_toEndOf="@id/iv_4"
+        app:layout_constraintTop_toBottomOf="@id/iv_7" />
+
+    <ImageView
+        android:id="@+id/iv_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_6"
+        app:layout_constraintEnd_toStartOf="@id/iv_plus"
+        app:layout_constraintStart_toEndOf="@id/iv_5"
+        app:layout_constraintTop_toBottomOf="@id/iv_7" />
+
+    <ImageView
+        android:id="@+id/iv_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/ic_plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_6"
+        app:layout_constraintTop_toBottomOf="@id/iv_7" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
