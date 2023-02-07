@@ -1,5 +1,7 @@
 package com.fona.fonacasadelrio;
 
+import static com.fona.fonacasadelrio.Constants.background;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
@@ -9,7 +11,6 @@ import android.os.Bundle;
 public class SplashActivity extends AppCompatActivity {
 
     ConstraintLayout layout;
-    static int background = R.drawable.background_gradient_red;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
