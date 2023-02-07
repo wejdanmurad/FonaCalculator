@@ -7,6 +7,7 @@ import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.fona.fonacasadelrio.databinding.ActivityMainBinding;
@@ -23,11 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
         initViews();
     }
 
     private void initViews() {
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
         binding.calculate.setOnClickListener(this);
         binding.settings.setOnClickListener(this);
         binding.history.setOnClickListener(this);
@@ -36,15 +37,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view.getId() == binding.calculate.getId()) {
-            startActivity(CalculateActivity.class);
+            newActivity(CalculateActivity.class);
+            Log.d("TAG", "onClick: calculate");
         } else if (view.getId() == binding.settings.getId()) {
-            startActivity(SettingsActivity.class);
+            newActivity(SettingsActivity.class);
+            Log.d("TAG", "onClick: calculate");
         } else if (view.getId() == binding.history.getId()) {
-            startActivity(HistoryActivity.class);
+            newActivity(HistoryActivity.class);
+            Log.d("TAG", "onClick: calculate");
         }
     }
 
-    private void startActivity(Class<?> clas) {
+    private void newActivity(Class<?> clas) {
         startActivity(new Intent(this, clas));
     }
 }

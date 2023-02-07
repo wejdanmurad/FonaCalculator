@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.fona.fonacasadelrio.R;
+import com.fona.fonacasadelrio.databinding.ActivityHistoryBinding;
 
 public class HistoryActivity extends AppCompatActivity {
+
+
+    private ActivityHistoryBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        binding = ActivityHistoryBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 }

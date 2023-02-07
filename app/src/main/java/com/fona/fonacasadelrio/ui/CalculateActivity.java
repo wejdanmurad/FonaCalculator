@@ -15,6 +15,6 @@ public class CalculateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCalculateBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_calculate);
+        setContentView(binding.getRoot());
     }
 }

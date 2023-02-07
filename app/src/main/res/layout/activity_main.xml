@@ -31,16 +31,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
+
     <ImageView
         android:id="@+id/image_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="1dp"
         android:src="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 
     <TextView
@@ -48,15 +48,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_50sdp"
-        android:layout_marginTop="@dimen/_20sdp"
         android:drawablePadding="@dimen/_15sdp"
         android:elevation="@dimen/_2sdp"
         android:text="@string/calculate"
+        android:layout_marginTop="@dimen/_160sdp"
         android:textColor="@color/black"
         android:textSize="@dimen/_28sdp"
         app:drawableStartCompat="@drawable/ic_arrow"
+        app:layout_constraintTop_toTopOf="@id/foreground"
         app:layout_constraintStart_toStartOf="@id/image_home"
-        app:layout_constraintTop_toTopOf="@id/image_home" />
+       />
 
     <TextView
         android:id="@+id/settings"
@@ -87,7 +88,8 @@
         android:textSize="@dimen/_28sdp"
         app:drawableStartCompat="@drawable/ic_arrow"
         app:layout_constraintStart_toStartOf="@id/image_home"
-        app:layout_constraintTop_toBottomOf="@id/settings" />
+        app:layout_constraintTop_toBottomOf="@id/settings"
+        />
 
 
 
@@ -97,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.27" />
+        app:layout_constraintGuide_percent="0.30" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
