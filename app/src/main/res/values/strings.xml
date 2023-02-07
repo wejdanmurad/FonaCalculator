@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Fona Calculator</string>
     <string name="menu">Menu</string>
+    <string name="calculate">Calculate</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
 </resources>
