@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Fona\nCalculator</string>
+    <string name="app_name">Fona Calculator</string>
+    <string name="menu">Menu</string>
     <string name="text_splash">Please accept our\nprivacy policy to start\nan app</string>
     <string name="accept">Accept</string>
+
 </resources>
