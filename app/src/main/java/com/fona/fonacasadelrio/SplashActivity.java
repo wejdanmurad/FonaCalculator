@@ -6,11 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.fona.fonacasadelrio.databinding.ActivitySplashBinding;
+
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
     ConstraintLayout layout;
+    ActivitySplashBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
