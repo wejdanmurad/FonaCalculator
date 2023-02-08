@@ -19,13 +19,16 @@
 
     <TextView
         android:id="@+id/tv_result"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_30sdp"
         android:text="136"
+        android:gravity="end"
         android:textColor="@color/white"
         android:textSize="@dimen/_60sdp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/view"
+
         app:layout_constraintTop_toTopOf="@id/imageView2" />
 
     <View
@@ -40,14 +43,16 @@
         app:layout_constraintTop_toBottomOf="@id/tv_result" />
 
     <TextView
-        android:id="@+id/tv_now"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_operation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_9sdp"
-        android:text="32*9"
+        android:gravity="end"
+        android:maxLines="3"
         android:textColor="@color/white"
         android:textSize="@dimen/_24sdp"
         app:layout_constraintEnd_toEndOf="@id/view"
+        app:layout_constraintStart_toStartOf="@id/view"
         app:layout_constraintTop_toBottomOf="@id/view" />
 
     <ImageView
@@ -74,11 +79,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/iv_c"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_c" />
 
             <ImageView
