@@ -18,6 +18,7 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         binding = ActivityCalculateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initView();
