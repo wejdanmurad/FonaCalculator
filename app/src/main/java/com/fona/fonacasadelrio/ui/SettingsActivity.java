@@ -87,8 +87,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             backgroundValue = R.drawable.background_gradient_12;
             buttonValue = R.drawable.rounded_background_12;
         } else if (view.getId() == binding.btnSave.getId()) {
-//            Constants.background = backgroundValue;
-//            Constants.button = buttonValue;
             SharedPreferencesHelper.setBackground(this, backgroundValue);
             SharedPreferencesHelper.setButton(this, buttonValue);
             finish();
