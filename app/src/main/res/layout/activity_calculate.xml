@@ -23,16 +23,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_30sdp"
+        android:background="@android:color/transparent"
         android:enabled="false"
         android:gravity="end"
-        android:background="@android:color/transparent"
 
         android:textColor="@color/white"
         android:textSize="@dimen/_40sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/view"
 
-        app:layout_constraintTop_toTopOf="@id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <View
         android:id="@+id/view"
