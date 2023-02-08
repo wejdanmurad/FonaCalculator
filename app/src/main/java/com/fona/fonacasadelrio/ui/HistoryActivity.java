@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.fona.fonacasadelrio.Constants;
+import com.fona.fonacasadelrio.HistoryAdapter;
 import com.fona.fonacasadelrio.R;
 import com.fona.fonacasadelrio.databinding.ActivityHistoryBinding;
 
@@ -17,6 +18,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private ActivityHistoryBinding binding;
+    private HistoryAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
