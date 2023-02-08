@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void newActivity(Class<?> clas) {
         startActivity(new Intent(this, clas));
-        finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
     }
 }
