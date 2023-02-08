@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.Set;
+
 public class SharedPreferencesHelper {
 
     private SharedPreferencesHelper() {
@@ -33,12 +35,12 @@ public class SharedPreferencesHelper {
     }
 
     /*<---------------List---------------->*/
-    public static int getListHistory(Context context) {
-        return getSharedPref(context).getInt("BUTTON", R.drawable.rounded_background_1);
+    public static String getListHistory(Context context) {
+        return getSharedPref(context).getString("LIST", null);
     }
 
-    public static void setListHistory(Context context, int button) {
-        getSharedPref(context).edit().putInt("BUTTON", button).apply();
+    public static void setListHistory(Context context, String items) {
+        getSharedPref(context).edit().putString("LIST", items).apply();
     }
 
 }

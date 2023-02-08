@@ -13,14 +13,22 @@ import com.fona.fonacasadelrio.MainActivity;
 import com.fona.fonacasadelrio.R;
 import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivityCalculateBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.mariuszgromada.math.mxparser.Expression;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
 public class CalculateActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityCalculateBinding binding;
+
+    private List<String> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,39 +111,45 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
     }
 
 
-    public void zeroBTN(){
+    public void zeroBTN() {
         updateText("0");
     }
-    public void oneBTN(){
+
+    public void oneBTN() {
         updateText("1");
     }
-    public void twoBTN(){
+
+    public void twoBTN() {
         updateText("2");
     }
-    public void threeBTN(){
+
+    public void threeBTN() {
         updateText("3");
     }
-    public void fourBTN(){
+
+    public void fourBTN() {
         updateText("4");
     }
-    public void fiveBTN(){
+
+    public void fiveBTN() {
         updateText("5");
     }
-    public void sixBTN(){
+
+    public void sixBTN() {
         updateText("6");
     }
-    public void sevenBTN(){
+
+    public void sevenBTN() {
         updateText("7");
     }
-    public void eightBTN(){
+
+    public void eightBTN() {
         updateText("8");
     }
-    public void nineBTN(){
+
+    public void nineBTN() {
         updateText("9");
     }
-
-
-
 
 
     public void clearBTN() {
@@ -172,6 +186,26 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
         String result = String.valueOf(exp.calculate());
         binding.tvResult.setText(result);
         binding.tvResult.setSelection(result.length());
+        String resulte = binding.tvOperation.getText().toString() + " = " + binding.tvResult.getText().toString();
+
+        //save  operation
+        if (SharedPreferencesHelper.getListHistory(this)!=null){
+            items.clear();
+            items.addAll(getOldData());
+        }
+        items.add(resulte);
+        Gson gson = new Gson();
+        String json = gson.toJson(items);
+        SharedPreferencesHelper.setListHistory(this, json);
+    }
+
+    private List<String> getOldData() {
+        Gson gson = new Gson();
+        String json = SharedPreferencesHelper.getListHistory(this);
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
+        List<String> arrayList = gson.fromJson(json, type);
+        return arrayList;
     }
 
     public void pointBTN() {

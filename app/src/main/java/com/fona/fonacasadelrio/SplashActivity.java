@@ -41,6 +41,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(browserIntent);
         } else if (view.getId() == binding.btnAccept.getId()) {
             startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
     }
 

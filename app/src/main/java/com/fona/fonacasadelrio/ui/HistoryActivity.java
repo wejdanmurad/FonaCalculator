@@ -12,12 +12,20 @@ import com.fona.fonacasadelrio.HistoryAdapter;
 import com.fona.fonacasadelrio.R;
 import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivityHistoryBinding;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class HistoryActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private ActivityHistoryBinding binding;
     private HistoryAdapter adapter;
+    private List<String> arrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +35,21 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(binding.getRoot());
 
         initViews();
+        if (SharedPreferencesHelper.getListHistory(this) != null) {
+            initAdapter();
+        }
+
     }
 
+
     private void initAdapter() {
-//        adapter = new HistoryAdapter(SharedPreferencesHelper.getListHistory(this));
-//        binding.rvHistory.setAdapter(adapter);
+        Gson gson = new Gson();
+        String json = SharedPreferencesHelper.getListHistory(this);
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
+        arrayList = gson.fromJson(json, type);
+        adapter = new HistoryAdapter(arrayList);
+        binding.rvHistory.setAdapter(adapter);
     }
 
     private void initViews() {

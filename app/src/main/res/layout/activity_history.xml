@@ -64,6 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/foreground"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
         tools:listitem="@layout/item_history" />
 
     <androidx.constraintlayout.widget.Guideline
