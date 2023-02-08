@@ -47,6 +47,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         binding.btnColor12.setOnClickListener(this);
 
         binding.btnSave.setOnClickListener(this);
+        binding.ivBack.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +91,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         } else if (view.getId() == binding.btnSave.getId()) {
             Constants.background = backgroundValue;
             Constants.button = buttonValue;
+            finish();
+        } else if (view.getId() == binding.ivBack.getId()) {
             finish();
         }
         binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), backgroundValue, null));

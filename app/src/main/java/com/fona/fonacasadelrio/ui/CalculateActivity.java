@@ -52,7 +52,7 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if (view.getId() == binding.imageView2.getId()) {
-            startActivity(new Intent(this, MainActivity.class));
+            finish();
         } else if (view.getId() == binding.ivC.getId()) {
             binding.tvOperation.setText("");
         } else if (view.getId() == binding.ivX.getId()) {
