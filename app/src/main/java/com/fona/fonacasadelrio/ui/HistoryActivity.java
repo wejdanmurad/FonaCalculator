@@ -1,7 +1,5 @@
 package com.fona.fonacasadelrio.ui;
 
-import static com.fona.fonacasadelrio.Constants.background;
-import static com.fona.fonacasadelrio.Constants.button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -9,8 +7,7 @@ import androidx.core.content.res.ResourcesCompat;
 import android.os.Bundle;
 import android.view.View;
 
-import com.fona.fonacasadelrio.Constants;
-import com.fona.fonacasadelrio.R;
+import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivityHistoryBinding;
 
 public class HistoryActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,7 +26,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initViews() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
         binding.ivBack.setOnClickListener(this);
     }
 

@@ -1,8 +1,5 @@
 package com.fona.fonacasadelrio;
 
-import static com.fona.fonacasadelrio.Constants.background;
-import static com.fona.fonacasadelrio.Constants.button;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
@@ -29,7 +26,9 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initViews() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
+        binding.btnAccept.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getButton(this), null));
+
         binding.btnAccept.setOnClickListener(this);
     }
 
@@ -41,7 +40,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onResume() {
         super.onResume();
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
-        binding.btnAccept.setBackground(ResourcesCompat.getDrawable(getResources(), button, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
+        binding.btnAccept.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getButton(this), null));
     }
 }

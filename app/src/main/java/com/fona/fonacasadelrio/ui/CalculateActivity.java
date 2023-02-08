@@ -1,7 +1,5 @@
 package com.fona.fonacasadelrio.ui;
 
-import static com.fona.fonacasadelrio.Constants.background;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -13,6 +11,7 @@ import android.widget.Toast;
 
 import com.fona.fonacasadelrio.MainActivity;
 import com.fona.fonacasadelrio.R;
+import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivityCalculateBinding;
 
 import org.mariuszgromada.math.mxparser.Expression;
@@ -34,7 +33,7 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
 
 
     private void initView() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
         binding.imageView2.setOnClickListener(this);
         binding.ivC.setOnClickListener(this);
         binding.ivX.setOnClickListener(this);
