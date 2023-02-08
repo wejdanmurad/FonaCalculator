@@ -12,6 +12,7 @@ import android.view.View;
 import com.fona.fonacasadelrio.Constants;
 import com.fona.fonacasadelrio.HistoryAdapter;
 import com.fona.fonacasadelrio.R;
+import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivityHistoryBinding;
 
 public class HistoryActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,7 +20,6 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
 
     private ActivityHistoryBinding binding;
     private HistoryAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initViews() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
         binding.ivBack.setOnClickListener(this);
     }
 

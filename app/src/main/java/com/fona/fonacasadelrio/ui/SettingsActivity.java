@@ -1,23 +1,19 @@
 package com.fona.fonacasadelrio.ui;
 
-
-import static com.fona.fonacasadelrio.Constants.background;
-import static com.fona.fonacasadelrio.Constants.button;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import android.os.Bundle;
 import android.view.View;
 
-import com.fona.fonacasadelrio.Constants;
 import com.fona.fonacasadelrio.R;
+import com.fona.fonacasadelrio.SharedPreferencesHelper;
 import com.fona.fonacasadelrio.databinding.ActivitySettingsBinding;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivitySettingsBinding binding;
-    private int backgroundValue = Constants.background;
-    private int buttonValue = Constants.button;
+    private int backgroundValue;
+    private int buttonValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +26,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initViews() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
-        binding.btnSave.setBackground(ResourcesCompat.getDrawable(getResources(), button, null));
+        backgroundValue = SharedPreferencesHelper.getBackground(this);
+        buttonValue = SharedPreferencesHelper.getButton(this);
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
+        binding.btnSave.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getButton(this), null));
 
         binding.btnColor1.setOnClickListener(this);
         binding.btnColor2.setOnClickListener(this);
@@ -89,8 +87,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             backgroundValue = R.drawable.background_gradient_12;
             buttonValue = R.drawable.rounded_background_12;
         } else if (view.getId() == binding.btnSave.getId()) {
-            Constants.background = backgroundValue;
-            Constants.button = buttonValue;
+//            Constants.background = backgroundValue;
+//            Constants.button = buttonValue;
+            SharedPreferencesHelper.setBackground(this, backgroundValue);
+            SharedPreferencesHelper.setButton(this, buttonValue);
             finish();
         } else if (view.getId() == binding.ivBack.getId()) {
             finish();

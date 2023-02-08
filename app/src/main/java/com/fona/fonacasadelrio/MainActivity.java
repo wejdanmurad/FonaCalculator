@@ -1,7 +1,5 @@
 package com.fona.fonacasadelrio;
 
-import static com.fona.fonacasadelrio.Constants.background;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initViews() {
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
         binding.calculate.setOnClickListener(this);
         binding.settings.setOnClickListener(this);
         binding.history.setOnClickListener(this);
@@ -53,6 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), SharedPreferencesHelper.getBackground(this), null));
     }
 }
