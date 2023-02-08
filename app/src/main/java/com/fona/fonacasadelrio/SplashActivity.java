@@ -24,14 +24,22 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        initViews();
+    }
 
+    private void initViews() {
         binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
-
         binding.btnAccept.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
     }
 }
