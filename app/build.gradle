@@ -43,4 +43,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     //sdp
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'org.mariuszgromada.math:MathParser.org-mXparser:5.2.0'
 }

@@ -1,15 +1,23 @@
 package com.fona.fonacasadelrio.ui;
 
+import static com.fona.fonacasadelrio.Constants.background;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.Toast;
 
 import com.fona.fonacasadelrio.MainActivity;
 import com.fona.fonacasadelrio.R;
 import com.fona.fonacasadelrio.databinding.ActivityCalculateBinding;
+
+import org.mariuszgromada.math.mxparser.Expression;
+
+import javax.xml.xpath.XPathExpressionException;
 
 public class CalculateActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +34,7 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
 
 
     private void initView() {
+        binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
         binding.imageView2.setOnClickListener(this);
         binding.ivC.setOnClickListener(this);
         binding.ivX.setOnClickListener(this);
@@ -54,43 +63,146 @@ public class CalculateActivity extends AppCompatActivity implements View.OnClick
         if (view.getId() == binding.imageView2.getId()) {
             startActivity(new Intent(this, MainActivity.class));
         } else if (view.getId() == binding.ivC.getId()) {
-            binding.tvOperation.setText("");
+            clearBTN();
         } else if (view.getId() == binding.ivX.getId()) {
-            binding.tvOperation.append("*");
+            multiplyBTN();
         } else if (view.getId() == binding.ivDev.getId()) {
-            binding.tvOperation.append("/");
+            divideBTN();
         } else if (view.getId() == binding.ivDelete.getId()) {
-            binding.tvOperation.append("d");
+            backspaceBTN();
         } else if (view.getId() == binding.iv7.getId()) {
-            binding.tvOperation.append("7");
+            sevenBTN();
         } else if (view.getId() == binding.iv8.getId()) {
-            binding.tvOperation.append("8");
+            eightBTN();
         } else if (view.getId() == binding.iv9.getId()) {
-            binding.tvOperation.append("9");
+            nineBTN();
         } else if (view.getId() == binding.ivMun.getId()) {
-            binding.tvOperation.append("-");
+            minusBTN();
         } else if (view.getId() == binding.iv4.getId()) {
-            binding.tvOperation.append("4");
+            fourBTN();
         } else if (view.getId() == binding.iv5.getId()) {
-            binding.tvOperation.append("5");
+            fiveBTN();
         } else if (view.getId() == binding.iv6.getId()) {
-            binding.tvOperation.append("6");
+            sixBTN();
         } else if (view.getId() == binding.ivPlus.getId()) {
-            binding.tvOperation.append("+");
+            plusBTN();
         } else if (view.getId() == binding.iv1.getId()) {
-            binding.tvOperation.append("1");
+            oneBTN();
         } else if (view.getId() == binding.iv2.getId()) {
-            binding.tvOperation.append("2");
+            twoBTN();
         } else if (view.getId() == binding.iv3.getId()) {
-            binding.tvOperation.append("3");
+            threeBTN();
         } else if (view.getId() == binding.ivDote.getId()) {
-            binding.tvOperation.append(",");
+            pointBTN();
         } else if (view.getId() == binding.iv0.getId()) {
-            binding.tvOperation.append("0");
+            zeroBTN();
         } else if (view.getId() == binding.ivPercent.getId()) {
-            binding.tvOperation.append("%");
+            percentBTN();
         } else if (view.getId() == binding.ivResult.getId()) {
-            binding.tvOperation.append("=");
+            equalsBTN();
         }
     }
+
+
+    public void zeroBTN(){
+        updateText("0");
+    }
+    public void oneBTN(){
+        updateText("1");
+    }
+    public void twoBTN(){
+        updateText("2");
+    }
+    public void threeBTN(){
+        updateText("3");
+    }
+    public void fourBTN(){
+        updateText("4");
+    }
+    public void fiveBTN(){
+        updateText("5");
+    }
+    public void sixBTN(){
+        updateText("6");
+    }
+    public void sevenBTN(){
+        updateText("7");
+    }
+    public void eightBTN(){
+        updateText("8");
+    }
+    public void nineBTN(){
+        updateText("9");
+    }
+
+
+
+
+
+    public void clearBTN() {
+        binding.tvOperation.setText("");
+        binding.tvResult.setText("");
+    }
+
+    public void divideBTN() {
+        updateText("÷");
+    }
+
+    public void multiplyBTN() {
+        updateText("×");
+    }
+
+    public void minusBTN() {
+        updateText("-");
+    }
+
+    public void plusBTN() {
+        updateText("+");
+    }
+
+    public void percentBTN() {
+        updateText("%");
+    }
+
+
+    public void equalsBTN() {
+        String userExp = binding.tvOperation.getText().toString();
+        userExp = userExp.replaceAll("÷", "/");
+        userExp = userExp.replaceAll("×", "*");
+        Expression exp = new Expression(userExp);
+        String result = String.valueOf(exp.calculate());
+        binding.tvResult.setText(result);
+        binding.tvResult.setSelection(result.length());
+    }
+
+    public void pointBTN() {
+        updateText(",");
+    }
+
+    public void backspaceBTN() {
+        int CursorPos = binding.tvOperation.getSelectionStart();
+        int textLen = binding.tvOperation.getText().length();
+        if (CursorPos != 0 && textLen != 0) {
+            SpannableStringBuilder selection = (SpannableStringBuilder) binding.tvOperation.getText();
+            selection.replace(CursorPos - 1, CursorPos, "");
+            binding.tvOperation.setText(selection);
+            binding.tvOperation.setSelection(CursorPos - 1);
+        }
+    }
+
+    private void updateText(String StrToADD) {
+        String oldStr = binding.tvOperation.getText().toString();
+        int CursorPos = binding.tvOperation.getSelectionStart();
+
+        String leftStr = oldStr.substring(0, CursorPos);
+        String rightStr = oldStr.substring(CursorPos);
+        if (getString(R.string.enter_a_value).equals(binding.tvOperation.getText().toString())) {
+            binding.tvOperation.setText(StrToADD);
+        } else {
+            binding.tvOperation.setText(String.format("%s%s%s", leftStr, StrToADD, rightStr));
+        }
+        binding.tvOperation.setSelection(CursorPos + 1);
+    }
+
+
 }
