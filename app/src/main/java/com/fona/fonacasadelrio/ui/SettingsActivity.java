@@ -2,6 +2,7 @@ package com.fona.fonacasadelrio.ui;
 
 
 import static com.fona.fonacasadelrio.Constants.background;
+import static com.fona.fonacasadelrio.Constants.button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -16,6 +17,7 @@ import com.fona.fonacasadelrio.databinding.ActivitySettingsBinding;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivitySettingsBinding binding;
     private int backgroundValue = Constants.background;
+    private int buttonValue = Constants.button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     private void initViews() {
         binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.btnSave.setBackground(ResourcesCompat.getDrawable(getResources(), button, null));
 
         binding.btnColor1.setOnClickListener(this);
         binding.btnColor2.setOnClickListener(this);
@@ -50,34 +53,46 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         if (view.getId() == binding.btnColor1.getId()) {
             backgroundValue = R.drawable.background_gradient_1;
+            buttonValue = R.drawable.rounded_background_1;
         } else if (view.getId() == binding.btnColor2.getId()) {
             backgroundValue = R.drawable.background_gradient_2;
+            buttonValue = R.drawable.rounded_background_2;
         } else if (view.getId() == binding.btnColor3.getId()) {
             backgroundValue = R.drawable.background_gradient_3;
+            buttonValue = R.drawable.rounded_background_3;
         } else if (view.getId() == binding.btnColor4.getId()) {
             backgroundValue = R.drawable.background_gradient_4;
+            buttonValue = R.drawable.rounded_background_4;
         } else if (view.getId() == binding.btnColor5.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_5;
+            buttonValue = R.drawable.rounded_background_5;
         } else if (view.getId() == binding.btnColor6.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_6;
+            buttonValue = R.drawable.rounded_background_6;
         } else if (view.getId() == binding.btnColor7.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_7;
+            buttonValue = R.drawable.rounded_background_7;
         } else if (view.getId() == binding.btnColor8.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_8;
+            buttonValue = R.drawable.rounded_background_8;
         } else if (view.getId() == binding.btnColor9.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_9;
+            buttonValue = R.drawable.rounded_background_9;
         } else if (view.getId() == binding.btnColor10.getId()) {
-
-        } else if (view.getId() == binding.btnColor10.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_10;
+            buttonValue = R.drawable.rounded_background_10;
         } else if (view.getId() == binding.btnColor11.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_11;
+            buttonValue = R.drawable.rounded_background_11;
         } else if (view.getId() == binding.btnColor12.getId()) {
-
+            backgroundValue = R.drawable.background_gradient_12;
+            buttonValue = R.drawable.rounded_background_12;
         } else if (view.getId() == binding.btnSave.getId()) {
             Constants.background = backgroundValue;
+            Constants.button = buttonValue;
             finish();
         }
         binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), backgroundValue, null));
+        binding.btnSave.setBackground(ResourcesCompat.getDrawable(getResources(), buttonValue, null));
     }
 }
