@@ -1,7 +1,5 @@
 package com.fona.fonacasadelrio.ui;
 
-import static com.fona.fonacasadelrio.Constants.background;
-import static com.fona.fonacasadelrio.Constants.button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
@@ -20,6 +18,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
 
     private ActivityHistoryBinding binding;
     private HistoryAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +27,11 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(binding.getRoot());
 
         initViews();
+    }
+
+    private void initAdapter() {
+//        adapter = new HistoryAdapter(SharedPreferencesHelper.getListHistory(this));
+//        binding.rvHistory.setAdapter(adapter);
     }
 
     private void initViews() {

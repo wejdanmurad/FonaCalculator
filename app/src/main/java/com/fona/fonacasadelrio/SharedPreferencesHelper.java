@@ -32,4 +32,13 @@ public class SharedPreferencesHelper {
         getSharedPref(context).edit().putInt("BUTTON", button).apply();
     }
 
+    /*<---------------List---------------->*/
+    public static int getListHistory(Context context) {
+        return getSharedPref(context).getInt("BUTTON", R.drawable.rounded_background_1);
+    }
+
+    public static void setListHistory(Context context, int button) {
+        getSharedPref(context).edit().putInt("BUTTON", button).apply();
+    }
+
 }
