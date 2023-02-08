@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_34sdp"
-        android:background="@drawable/rounded_background_red"
+        android:background="@drawable/rounded_background_1"
         android:fontFamily="@font/manrope_700"
         android:paddingStart="@dimen/_27sdp"
         android:paddingTop="@dimen/_4sdp"

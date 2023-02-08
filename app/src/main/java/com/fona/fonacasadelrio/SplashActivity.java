@@ -1,6 +1,7 @@
 package com.fona.fonacasadelrio;
 
 import static com.fona.fonacasadelrio.Constants.background;
+import static com.fona.fonacasadelrio.Constants.button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -41,5 +42,6 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     protected void onResume() {
         super.onResume();
         binding.constraintLayout.setBackground(ResourcesCompat.getDrawable(getResources(), background, null));
+        binding.btnAccept.setBackground(ResourcesCompat.getDrawable(getResources(), button, null));
     }
 }
