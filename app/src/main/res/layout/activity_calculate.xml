@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient_1"
@@ -17,15 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/tv_result"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/_30sdp"
-        android:text="136"
+        android:enabled="false"
         android:gravity="end"
+        android:background="@android:color/transparent"
+
         android:textColor="@color/white"
-        android:textSize="@dimen/_60sdp"
+        android:textSize="@dimen/_40sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/view"
 
@@ -42,12 +45,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_result" />
 
-    <TextView
+    <EditText
         android:id="@+id/tv_operation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_9sdp"
+        android:enabled="false"
         android:gravity="end"
+        android:background="@android:color/transparent"
         android:maxLines="3"
         android:textColor="@color/white"
         android:textSize="@dimen/_24sdp"

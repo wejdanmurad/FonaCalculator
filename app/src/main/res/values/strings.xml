@@ -10,5 +10,6 @@
     <string name="choose_color">Choose color</string>
     <string name="desc">color</string>
     <string name="save">SAVE</string>
+    <string name="enter_a_value">"Enter a value "</string>
     <string name="saved_counts">Saved counts</string>
 </resources>
